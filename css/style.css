@@ -1,0 +1,66 @@
+.banner {
+    background: transparent url('https://images.unsplash.com/photo-1456428746267-a1756408f782?crop=entropy&fit=crop&fm=jpg&h=975&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925') 0 0 no-repeat fixed;
+    text-align: center;
+    background-size: cover;
+    background-position: 0px -150px;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://images.unsplash.com/photo-1456428746267-a1756408f782?crop=entropy&fit=crop&fm=jpg&h=975&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925', sizingMethod='scale');
+
+    height: 30%;
+    width: 100%;
+    margin-bottom: 3em;
+    display: table;
+}
+.banner-head {
+    display: table-cell;
+    vertical-align: middle;
+    margin-bottom: 0;
+    font-size: 3em;
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 1px 1px black;
+}
+
+div {
+	margin: 0 auto;
+}
+
+h2 {
+	color: darkolivegreen;
+}
+
+p, ul {
+	color: sienna;
+	font-size: 1em;
+	line-height: 1.6;
+}
+
+a {
+	color: steelblue;
+}
+
+pre,
+code {
+    font-family: Consolas, Courier, monospace;
+    color: #333;
+    background: ghostwhite;
+}
+
+code {
+    padding: 0.2em 0.4em;
+    white-space: nowrap;
+}
+
+.code {
+    margin-left: -1em;
+    margin-right: -1em;
+    padding: 1em;
+    border: 1px solid #eee;
+    border-left-width: 0;
+    border-right-width: 0;
+}
+.code code {
+    font-size: 95%;
+    white-space: pre;
+    padding: 0;
+    background: none;
+}

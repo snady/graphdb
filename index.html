@@ -24,9 +24,120 @@
     	</h1>
 	</div>
 	
-	<div class="pure-g">
+	<div class="pure-g" align="center">
+		<div class="pure-u-1-2" align="left">
+		<h2>What it is</h2>
+		<p>A database model where data is stored in vertices (nodes) and edges as opposed to tables. The equivalent of a field in a table would be a vertex in a graph, and data descriptors are edges. Individual nodes in the database store data, and the edges define the relationship between different nodes. Since nodes are all connected by edges and each node knows its connected nodes, there is no need for indices. Accessing data in graph databases is done through traversal, much like trees.</p>
+		</div>
+	</div>
+	<div class="pure-g" align="center">
+		<div class="pure-u-1-2" align="left">
+		<h2>Relational vs. Graph Databases</h2>
+		<p>Ironically, relational databases aren't good at representing relationships between multiple data items (complex queries that may span across multiple tables). 
+		Relational Databases also have rigid schema, and query execution time increases with larger datasets and more joins. This problem has become apparent as data is growing and becoming more interconnected. To cope with this, many companies have switched to Graph Databases as an alternative. </p>
+		<p>
+		Graph databases are especially good at representing associative data, and like other NoSQL databases they have flexible schemas. Whereas query latency in a relational database is dependent on the size of the dataset, in graph databases it is dependent on how much of the graph you choose to search. This can be optimized by limiting paths with constraints and querying only what you need. (Thus it is highly scalable as well).
+		</p>
+		<p>
+		Complex queries in aggregate databases usually require some sort of processing on the data, like MapReduce
+		("For example, if we wanted to use MapReduce to count the number of Americans there are in a recording artists database, we’d need to extract all artist data and discard the non-American ones in the map phase. Then, we’d count the remaining records in the reduce phase.")
+		</p>
+		<p>
+		In other words, relational databases are good for large discrete datasets, whereas graph databases are better for interconnected data where data relationships are significant. </p>
+		</div>
+	</div>
+	<div class="pure-g" align="center">
+		<div class="pure-u-1-2" align="left">
+		<h2>Applications</h2>
+		<p>Some good applications of a graph database:</p>
+		<ul>
+			<li>Social Media (relationships between people, mutual interests, e.g dating websites)</li>
+			<li>Recommendation Engine (Page Rank)</li>
+			<li>Fraud Detection/Intelligence and Law enforcements (relationship between people, pattern of events)</li>
+			<li>Bioinformatics research community (relationships between all the chemicals in the body)</li>
+		</ul>
+		<p>Some companies that have switched to graph databases:</p> 
+		<ul>
+			<li>Facebook</li>
+			<li>Twitter</li>
+			<li>LinkedIn</li>
+			<li>Glassdoor</li>
+			<li>Adidas</li>
+			<li>Wal-mart</li>
+			<li>eBay</li>
+		</ul>
+		</div>
+	</div>
+	<div class="pure-g" align="center">
+		<div class="pure-u-1-2" align="left">
+		<h2>Popular Graph DBMS</h2>
+		<ul>
+			<li><a href="http://neo4j.com/">Neo4j</a></li>
+			<li><a href="http://orientdb.com/orientdb/">OrientDB</a></li>
+			<li><a href="http://thinkaurelius.github.io/titan/">Titan</a></li>
+			<li><a href="https://www.arangodb.com/">ArangoDB</a></li>
+			<li><a href="http://www.objectivity.com/products/infinitegraph/">InfiniteGraph</a></li>
+			<li><a href="http://franz.com/agraph/allegrograph/">AllegroGraph</a></li>
+		</ul>
+		</div>
+	</div>
+	<div class="pure-g" align="center">
+		<div class="pure-u-1-2" align="left">
+		<h2>Code Sample</h2>
+		<img class="pure-img" src="https://raw.githubusercontent.com/snady/softdev-hw/master/graph_dbs/database.png">
+		</div>
+	</div>
+	<div class="pure-g" align="center">
+		<div class="pure-u-1-2" align="left">
+		<h2>SQL</h2>
+		<pre class="code">
+<code>CREATE TABLE teachers (
+  teacher_id INTEGER,
+  name TEXT,
+  fav_student INTEGER
+);
+INSERT INTO teachers (teacher_id, name, fav_student);
+VALUES (
+  (0, 'Mr. Brown', 2),
+  (1, 'Mr. DW', 1)
+);
+
+SELECT students.name FROM students 
+WHERE students.student_id IN (SELECT students FROM courses WHERE name = 'Softdev') 
+AND students.student_id IN (SELECT students FROM courses WHERE name = 'Graphics')</code>
+		</pre>
+		</div>
+	</div>
+	<div class="pure-g" align="center">
+		<div class="pure-u-1-2" align="left">
+		<h2>Neo4j</h2>
+		<pre class="code">
+<code>CREATE (Brown:Teacher { name: 'Mr. Brown'})
+CREATE (You:Student { name: 'You'})
+CREATE (Softdev:Course { name:'Softdev'})
+CREATE (Brown) -[:TEACHES]-> (Softdev)
+CREATE (You) -[:TAKES]-> (Softdev)
+CREATE (Brown) -[:FAVORS]-> (You)
+
+MATCH (student:Student) -[:TAKES]-> (course:Course)
+WHERE course.name = 'Softdev' AND
+WHERE course.name = 'Graphics'
+RETURN student.name</code>
+		</pre>
+		</div>
+	</div>
+	<div class="pure-g" align="center">
+		<div class="pure-u-1-2" align="left">
+		<h2>Additional Resources</h2>
+		<ul>
+		<li><a href="http://www.cray.com/blog/graph-databases-101/">Graph Databases 101</a></li>
+		<li><a href="http://www.sitepoint.com/php-neo4j-introduction-graph-databases/">Introduction to Graph Databases</a></li>
+		<li><a href="http://www.forbes.com/sites/danwoods/2014/02/14/50-shades-of-graph-how-graph-databases-are-transforming-online-dating/#10e076fa3002">Graph Databases and Online Dating</a></li>
+		<li><a href="http://neo4j.com/docs/stable/cypherdoc-cypher-vs-sql.html">Cypher vs. SQL</a></li>
+		<li><a href="http://neo4j.com/developer/graph-db-vs-rdbms/">Relational vs. Graph Databases</a></li>
+		</ul>
+		</div>
 	</div>
 
 </body>
-<script src="index.js"></script>
 </html>
